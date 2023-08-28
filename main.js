@@ -8,7 +8,7 @@ const clear = require('clear-screen')
 
 // Define characters used in the game
 const hat = '👒';
-const hole = '🚫';
+const hole = '🔳';
 const fieldCharacter = '⬜';
 const pathCharacter = '👮';
 
@@ -185,7 +185,7 @@ class Field {
     //Tells how the play will be called by the play function.
     instructions() {
         console.log(
-            "\n\n**INSTRUCTIONS:**\nFIND THE HAT! \nType U, D, L, R, (Up, Down, Left, Right) and hit enter to find the hat --> ^\nPress control + c to exit.\n"
+            "\n\n**INSTRUCTIONS:**\nFIND THE HAT! \nType W, S, A, D, (Up, Down, Left, Right) and hit enter to find the hat --> ^\nPress control + c to exit.\n"
         );
     }
 
@@ -194,20 +194,20 @@ class Field {
     askQuestion() {
         const answer = prompt("Which way do you want to go? --> ").toLowerCase();
         switch (answer) {
-            case "u":
+            case "w":
                 this.locationY -= 1;
                 break;
-            case "d":
+            case "s":
                 this.locationY += 1;
                 break;
-            case "l":
+            case "a":
                 this.locationX -= 1;
                 break;
-            case "r":
+            case "d":
                 this.locationX += 1;
                 break;
             default:
-                console.log("Invalid. Enter U, D, L or R.");
+                console.log("Invalid. Enter W, S, A or D.");
                 this.askQuestion();
                 break;
         }
